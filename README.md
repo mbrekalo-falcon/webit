@@ -33,6 +33,9 @@
 
 # Migrate models:
 - ```make migrate```
+
+# Makemigrations
+-  ```make makemigrations argument='init_migration'```
     
 # Run application:
 - ```make run```

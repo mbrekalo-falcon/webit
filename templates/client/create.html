@@ -1,0 +1,17 @@
+{% extends 'template.html' %}
+{% load rest_framework %}
+
+{% block title_component %}Create{% endblock %}
+
+{% block components %}
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <form class="form-horizontal" action="{% url 'client' %}" method="post" novalidate>
+            {% csrf_token %}
+            {% render_form serializer template_pack='rest_framework/horizontal' %}
+            <div class="btn-group float-right" role="group">
+                <a class="btn btn-secondary" href="/">Back</a>
+                <button type="submit" class="btn btn-info">Create</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

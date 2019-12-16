@@ -1,0 +1,51 @@
+{% extends 'template.html' %}
+
+{% block title_component %}List{% endblock %}
+
+{% block components %}
+<div class="row">
+    <div class="col-lg-12">
+        <a type="button" class="btn btn-secondary float-right" href="{% url 'client' %}">Create new client</a>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <br>
+        <table id="dtBasicExample" class="table  order-column" cellspacing="0" width="100%">
+          <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone number</th>
+                <th>Contact name</th>
+                <th>Street number</th>
+                <th>Suburb</th>
+                <th>Post Code</th>
+                <th>State</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for client in clients %}
+            <tr onclick="window.location='/client/{{ client.id }}';" style="cursor: pointer;">
+                <th>{{ client.name }}</th>
+                <th>{{ client.email }}</th>
+                <th>{{ client.phone_number }}</th>
+                <th>{{ client.contact_name }}</th>
+                <th>{{ client.street_name }}</th>
+                <th>{{ client.suburb }}</th>
+                <th>{{ client.post_code }}</th>
+                <th>{{ client.state.name }}</th>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_script %}
+     <script>
+      $(document).ready(function () {
+        $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+  </script>
+{% endblock %}
