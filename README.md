@@ -20,7 +20,9 @@
                 "allowed_hosts": ["*"]
             }
          ```
-      
+# Database 
+- PostgresSQL 
+     
 # Create Extra folders:
 - log/
 - .envdir/
